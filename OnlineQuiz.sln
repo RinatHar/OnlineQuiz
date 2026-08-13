@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineQuiz", "src\OnlineQuiz\OnlineQuiz.csproj", "{2F3402AF-65A1-455B-AC9D-C8510A0D1949}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{2F3402AF-65A1-455B-AC9D-C8510A0D1949}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6DDFBA1B-50A7-40A7-BFCA-60E9AF87AE9F}"
 EndProject
