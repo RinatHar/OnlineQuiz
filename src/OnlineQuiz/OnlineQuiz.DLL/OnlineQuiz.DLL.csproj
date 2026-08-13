@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <ProjectReference Include="..\OnlineQuiz.BLL\OnlineQuiz.BLL.csproj" />
+    </ItemGroup>
+
+</Project>
