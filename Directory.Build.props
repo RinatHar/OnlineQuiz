@@ -1,0 +1,25 @@
+﻿<Project>
+    <PropertyGroup>
+        <Authors>OnlineQuiz Team</Authors>
+        <Company>OnlineQuiz</Company>
+        <Copyright>© OnlineQuiz. All rights reserved.</Copyright>
+        <RepositoryUrl>https://github.com/RinatHar/OnlineQuiz</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+
+        <!-- Включаем предупреждения как ошибки для строгого стиля -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+        <NuGetAudit>false</NuGetAudit>
+
+        <IsPackable>false</IsPackable>
+        <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+
+        <DebugType>portable</DebugType>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    </PropertyGroup>
+</Project>

@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    container_name: db
+    environment:
+      - POSTGRES_USER=quiz
+      - POSTGRES_PASSWORD=quiz
+      - POSTGRES_DB=quiz
+      - TZ=Europe/Moscow
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U quiz" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    ports:
+      - '5555:5432'
+    networks:
+      - quiz-network
+    
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api-runtime
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__Postgres=${DB_CONNECTION_STRING}
+      - JwtSettings__Secret=${JWT_SECRET}
+      - JwtSettings__Issuer=${JWT_ISSUER}
+      - JwtSettings__Audience=${JWT_AUDIENCE}
+      - JwtSettings__AccessTokenExpirationMinutes=${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES}
+      - JwtSettings__RefreshTokenExpirationDays=${JWT_REFRESH_TOKEN_EXPIRATION_DAYS}
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - quiz-network
+
+networks:
+  quiz-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
